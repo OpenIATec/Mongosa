@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongosa", "src\Mongosa\Mongosa.csproj", "{CF2579FD-E658-4708-95AC-4328315BBAFC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0306D9C2-897A-4C5E-AAA6-AB6D99F86993}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D26A1656-580E-4407-9CCF-DF14461EDF6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mongosa.UnitTests", "tests\Mongosa.UnitTests\Mongosa.UnitTests.csproj", "{DC01A046-4A80-4B32-B70A-97C006C4DBE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF2579FD-E658-4708-95AC-4328315BBAFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2579FD-E658-4708-95AC-4328315BBAFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF2579FD-E658-4708-95AC-4328315BBAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF2579FD-E658-4708-95AC-4328315BBAFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC01A046-4A80-4B32-B70A-97C006C4DBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC01A046-4A80-4B32-B70A-97C006C4DBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC01A046-4A80-4B32-B70A-97C006C4DBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC01A046-4A80-4B32-B70A-97C006C4DBE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF2579FD-E658-4708-95AC-4328315BBAFC} = {0306D9C2-897A-4C5E-AAA6-AB6D99F86993}
+		{DC01A046-4A80-4B32-B70A-97C006C4DBE5} = {D26A1656-580E-4407-9CCF-DF14461EDF6F}
+	EndGlobalSection
+EndGlobal
