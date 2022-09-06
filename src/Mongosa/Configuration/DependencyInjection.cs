@@ -8,22 +8,33 @@ namespace Mongosa.Configuration
 {
     public static class DependencyInjection
     {
-        public static IServiceCollection AddMongosa(this IServiceCollection services, Action<DatabaseSettings> settings = null)
+        public static IServiceCollection AddMongosa(this IServiceCollection services, Action<MongoClientSettings> mongoClientSettings = null, Action<DatabaseSettings> databaseSettings = null)
         {
-            var opt = new DatabaseSettings();
-            settings?.Invoke(opt);
-
-            if (settings != null)
+            if (mongoClientSettings != null)
             {
-                services.AddSingleton<DatabaseSettings>(sp => opt);
+                var opt = new MongoClientSettings();
+                mongoClientSettings.Invoke(opt);
+                services.AddSingleton(sp => opt);
             }
             else
             {
-                services.AddSingleton<DatabaseSettings>(sp => sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
+                services.AddSingleton(sp => sp.GetRequiredService<MongoClientSettings>());
+            }
+            
+            if (databaseSettings != null)
+            {
+                var opt = new DatabaseSettings();
+                databaseSettings.Invoke(opt);
+                services.AddSingleton(sp => opt);
+            }
+            else
+            {
+                services.AddSingleton(sp => sp.GetRequiredService<DatabaseSettings>());
             }
 
+            services.AddSingleton<IMongoClient>(sp => new MongoClient(sp.GetRequiredService<MongoClientSettings>()));
+
             services.AddScoped<IMongoMigrations, MongoMigrations>();
-            services.AddSingleton<IMongoClient>(sp => new MongoClient(sp.GetRequiredService<DatabaseSettings>().ConnectionString));
             services.AddScoped<IMongoContext, MongoContext>();
             services.AddSingleton<MongoPreparation>();
             services.AddSingleton<IMongoPreparation>(sp => sp.GetRequiredService<MongoPreparation>());
